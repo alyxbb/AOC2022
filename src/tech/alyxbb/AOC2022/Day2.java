@@ -1,13 +1,13 @@
 package tech.alyxbb.AOC2022;
 
-public class Day2 extends Day {
+public class Day2 extends IntDay {
 
 
     public Day2(String inp) {
         super(inp);
     }
 
-    int part1() {
+    Integer part1() {
         String[] matches = input.split("\n");
         int score = 0;
         for (String match : matches) {
@@ -37,7 +37,7 @@ public class Day2 extends Day {
         return score;
     }
 
-    int part2() {
+    Integer part2() {
 
         String[] matches = input.split("\n");
         int score = 0;

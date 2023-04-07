@@ -1,12 +1,12 @@
 package tech.alyxbb.AOC2022;
 
-public class Day1 extends Day {
+public class Day1 extends IntDay {
 
     public Day1(String inp) {
         super(inp);
     }
 
-    public int part1() {
+    Integer part1() {
         String[] foods = this.input.split("\n");
         int max = 0;
         int tot = 0;
@@ -23,7 +23,7 @@ public class Day1 extends Day {
         return max;
     }
 
-    public int part2() {
+    Integer part2() {
         String[] foods = this.input.split("\n");
         int[] max = {0, 0, 0};
         int tot = 0;

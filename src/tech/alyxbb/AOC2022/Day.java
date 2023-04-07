@@ -7,7 +7,7 @@ public abstract class Day {
         input = inp;
     }
 
-    abstract int part1();
+    abstract Object part1();
 
-    abstract int part2();
+    abstract Object part2();
 }

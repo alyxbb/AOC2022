@@ -2,12 +2,12 @@ package tech.alyxbb.AOC2022;
 
 import java.util.Arrays;
 
-public class Day4 extends Day {
+public class Day4 extends IntDay {
     public Day4(String inp) {
         super(inp);
     }
 
-    int part1() {
+    Integer part1() {
         String[] elfPairs = input.split("\n");
         int count = 0;
         for (String elfPair : elfPairs) {
@@ -24,7 +24,7 @@ public class Day4 extends Day {
         return count;
     }
 
-    int part2() {
+    Integer part2() {
         String[] elfPairs = input.split("\n");
         int count = 0;
         for (String elfPair : elfPairs) {
