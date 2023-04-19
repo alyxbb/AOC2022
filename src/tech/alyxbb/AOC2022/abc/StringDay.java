@@ -1,4 +1,4 @@
-package tech.alyxbb.AOC2022;
+package tech.alyxbb.AOC2022.abc;
 
 public abstract class StringDay extends Day {
 
@@ -6,7 +6,7 @@ public abstract class StringDay extends Day {
         super(inp);
     }
 
-    abstract String part1();
+    public abstract String part1();
 
-    abstract String part2();
+    public abstract String part2();
 }

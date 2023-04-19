@@ -1,5 +1,6 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.IntDay;
 import tech.alyxbb.AOC2022.day9.Head;
 import tech.alyxbb.AOC2022.day9.Tail;
 
@@ -8,7 +9,7 @@ public class Day9 extends IntDay {
         super(inp);
     }
 
-    Integer part1() {
+    public Integer part1() {
         String[] moves = input.split("\n");
         Head head = new Head(0, 0);
         Tail tail = new Tail(0, 0);
@@ -38,7 +39,7 @@ public class Day9 extends IntDay {
         return tail.getPointCount();
     }
 
-    Integer part2() {
+    public Integer part2() {
         String[] moves = input.split("\n");
         Head head = new Head(0, 0);
         Tail[] tails = {

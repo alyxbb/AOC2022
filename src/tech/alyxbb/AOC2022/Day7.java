@@ -1,5 +1,6 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.IntDay;
 import tech.alyxbb.AOC2022.day7.Dir;
 import tech.alyxbb.AOC2022.day7.File;
 
@@ -11,7 +12,7 @@ public class Day7 extends IntDay {
         super(inp);
     }
 
-    Integer part1() {
+    public Integer part1() {
         Dir root = genFs();
         return root.getSizeTotIfSmall();
     }
@@ -56,7 +57,7 @@ public class Day7 extends IntDay {
         return root;
     }
 
-    Integer part2() {
+    public Integer part2() {
         Dir root = genFs();
         int sizeUsed = root.getSize();
         int sizeavail = 70000000 - sizeUsed;

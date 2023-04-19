@@ -1,15 +1,15 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.IntDay;
+
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.stream.Collectors;
 
 public class Day8 extends IntDay {
     public Day8(String inp) {
         super(inp);
     }
 
-    Integer part1() {
+    public Integer part1() {
         int[][] heights = Arrays.stream(input.split("\n"))
                 .map(row -> row
                         .chars()
@@ -92,7 +92,7 @@ public class Day8 extends IntDay {
         return total - visible;
     }
 
-    Integer part2() {
+    public Integer part2() {
         int[][] heights = Arrays.stream(input.split("\n"))
                 .map(row -> row
                         .chars()

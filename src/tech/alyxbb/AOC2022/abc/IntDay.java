@@ -1,4 +1,4 @@
-package tech.alyxbb.AOC2022;
+package tech.alyxbb.AOC2022.abc;
 
 public abstract class IntDay extends Day {
 
@@ -6,7 +6,7 @@ public abstract class IntDay extends Day {
         super(inp);
     }
 
-    abstract Integer part1();
+    public abstract Integer part1();
 
-    abstract Integer part2();
+    public abstract Integer part2();
 }

@@ -1,5 +1,7 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.IntDay;
+
 public class Day2 extends IntDay {
 
 
@@ -7,7 +9,7 @@ public class Day2 extends IntDay {
         super(inp);
     }
 
-    Integer part1() {
+    public Integer part1() {
         String[] matches = input.split("\n");
         int score = 0;
         for (String match : matches) {
@@ -37,7 +39,7 @@ public class Day2 extends IntDay {
         return score;
     }
 
-    Integer part2() {
+    public Integer part2() {
 
         String[] matches = input.split("\n");
         int score = 0;

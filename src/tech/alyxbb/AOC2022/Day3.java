@@ -1,12 +1,14 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.IntDay;
+
 public class Day3 extends IntDay {
 
     public Day3(String inp) {
         super(inp);
     }
 
-    Integer part1() {
+    public Integer part1() {
         String[] rucksacks = input.split("\n");
         int tot = 0;
         for (String rucksack : rucksacks) {
@@ -39,7 +41,7 @@ public class Day3 extends IntDay {
         throw new RuntimeException("Invalid input");
     }
 
-    Integer part2() {
+    public Integer part2() {
         String[] rucksacks = input.split("\n");
         int tot = 0;
         for (int rucksack = 0; rucksack < rucksacks.length; rucksack += 3) {

@@ -1,5 +1,6 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.NullDay;
 import tech.alyxbb.AOC2022.day10.PC;
 import tech.alyxbb.AOC2022.day10.Register;
 
@@ -67,7 +68,7 @@ public class Day10 extends NullDay {
     boolean[] screen;
 
     @Override
-    Object part2() {
+    public Object part2() {
         screen = new boolean[240];
         String[] instructions = input.split("\n");
         Register xReg = new Register();

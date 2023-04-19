@@ -1,5 +1,7 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.StringDay;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -10,7 +12,7 @@ public class Day5 extends StringDay {
         super(inp);
     }
 
-    String part1() {
+    public String part1() {
         String[] parts = input.split("\n\n");
         String[] startingSetup = parts[0].split("\n");
         String[] swaps = parts[1].split("\n");
@@ -47,7 +49,7 @@ public class Day5 extends StringDay {
         return tops;
     }
 
-    String part2() {
+    public String part2() {
         String[] parts = input.split("\n\n");
         String[] startingSetup = parts[0].split("\n");
         String[] swaps = parts[1].split("\n");

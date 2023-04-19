@@ -1,5 +1,7 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.IntDay;
+
 import java.util.*;
 
 public class Day6 extends IntDay {
@@ -7,7 +9,7 @@ public class Day6 extends IntDay {
         super(inp);
     }
 
-    Integer part1() {
+    public Integer part1() {
         String device = input;
 
         Character[] letters = device.chars().mapToObj(c -> (char) c).toArray(Character[]::new);
@@ -22,7 +24,7 @@ public class Day6 extends IntDay {
     }
 
 
-    Integer part2() {
+    public Integer part2() {
         String device = input;
 
         Character[] letters = device.chars().mapToObj(c -> (char) c).toArray(Character[]::new);

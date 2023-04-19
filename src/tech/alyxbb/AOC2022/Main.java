@@ -1,5 +1,7 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.Day;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
@@ -27,7 +29,7 @@ public class Main {
         int dayno = getDayno();
 
         String puzzleInput = loadFile(Integer.toString(dayno));
-        Day day = (Day) Class.forName("tech.alyxbb.AOC2022.Day" + dayno).getConstructor(String.class).newInstance(puzzleInput);
+        Day day = (Day) Class.forName("tech.alyxbb.AOC2022.abc.Day" + dayno).getConstructor(String.class).newInstance(puzzleInput);
 
         System.out.println("Part 1 answer: " + day.part1());
         System.out.println("Part 2 answer: " + day.part2());

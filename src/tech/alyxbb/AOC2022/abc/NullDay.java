@@ -1,4 +1,4 @@
-package tech.alyxbb.AOC2022;
+package tech.alyxbb.AOC2022.abc;
 
 public abstract class NullDay extends Day {
 
@@ -6,8 +6,8 @@ public abstract class NullDay extends Day {
         super(inp);
     }
 
-    abstract Object part1();
+    public abstract Object part1();
 
-    abstract Object part2();
+    public abstract Object part2();
 }
 

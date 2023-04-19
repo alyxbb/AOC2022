@@ -1,5 +1,6 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.LongDay;
 import tech.alyxbb.AOC2022.day11.Monkey;
 import tech.alyxbb.AOC2022.day11.Operation;
 
@@ -14,7 +15,7 @@ public class Day11 extends LongDay {
         super(inp);
     }
 
-    Long part1() {
+    public Long part1() {
         ArrayList<Monkey> monkeys = new ArrayList<>(Collections.nCopies(100, null));
 
         String[] monkeysInput = input.split("\n\n");
@@ -116,7 +117,7 @@ public class Day11 extends LongDay {
 
     }
 
-    Long part2() {
+    public final Long part2() {
         ArrayList<Monkey> monkeys = new ArrayList<>(Collections.nCopies(100, null));
         long modamount = 1;
         String[] monkeysInput = input.split("\n\n");

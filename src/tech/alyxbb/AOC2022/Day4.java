@@ -1,5 +1,7 @@
 package tech.alyxbb.AOC2022;
 
+import tech.alyxbb.AOC2022.abc.IntDay;
+
 import java.util.Arrays;
 
 public class Day4 extends IntDay {
@@ -7,7 +9,7 @@ public class Day4 extends IntDay {
         super(inp);
     }
 
-    Integer part1() {
+    public Integer part1() {
         String[] elfPairs = input.split("\n");
         int count = 0;
         for (String elfPair : elfPairs) {
@@ -24,7 +26,7 @@ public class Day4 extends IntDay {
         return count;
     }
 
-    Integer part2() {
+    public Integer part2() {
         String[] elfPairs = input.split("\n");
         int count = 0;
         for (String elfPair : elfPairs) {

@@ -1,4 +1,4 @@
-package tech.alyxbb.AOC2022;
+package tech.alyxbb.AOC2022.abc;
 
 public abstract class LongDay extends Day {
 
@@ -6,7 +6,7 @@ public abstract class LongDay extends Day {
         super(inp);
     }
 
-    abstract Long part1();
+    public abstract Long part1();
 
-    abstract Long part2();
+    public abstract Long part2();
 }
