@@ -103,7 +103,7 @@ public class Day12 extends IntDay {
     }
 
     public Integer part2() {
-        // this takes about 2 min to run but it works. im sure there are better algorithms
+        // this takes about 2 min to run, but it works. im sure there are better algorithms
         int[][] elems = Arrays.stream(this.input.split("\n"))
                 .map(
                         row -> row.chars()
