@@ -1,27 +1,17 @@
 package tech.alyxbb.AOC2022.day9;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 import static java.lang.Math.abs;
 
 public class Tail extends Point {
 
-    private HashSet<Point> visited = new HashSet<>();
+    private final HashSet<Point> visited = new HashSet<>();
 
     public Tail(int x, int y) {
         super(x, y);
         visited.add(new Point(this.getPoints()));
 
-    }
-
-    public Tail(int[] points) {
-        super(points);
-    }
-
-    public Tail(ArrayList<Integer> points) {
-        super(points);
-        
     }
 
     public int getPointCount() {
@@ -34,23 +24,12 @@ public class Tail extends Point {
         boolean touching = abs(xDiff) <= 1 && abs(yDiff) <= 1;
         if (!touching) {
             switch (xDiff) {
-                case 2:
-                case 1:
-                    setX(getX() + 1);
-                    break;
-                case -2:
-                case -1:
-                    setX(getX() - 1);
-                    break;
+                case 2, 1 -> setX(getX() + 1);
+                case -2, -1 -> setX(getX() - 1);
             }
             switch (yDiff) {
-                case 2:
-                case 1:
-                    setY(getY() + 1);
-                    break;
-                case -2:
-                case -1:
-                    setY(getY() - 1);
+                case 2, 1 -> setY(getY() + 1);
+                case -2, -1 -> setY(getY() - 1);
             }
             visited.add(new Point(this.getPoints()));
         }

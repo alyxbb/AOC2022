@@ -1,7 +1,5 @@
 package tech.alyxbb.AOC2022.day14;
 
-import java.util.ArrayList;
-
 public class Point {
     private int x;
     private int y;

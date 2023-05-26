@@ -6,6 +6,7 @@ import tech.alyxbb.AOC2022.day10.Register;
 
 import static java.lang.Math.abs;
 
+@SuppressWarnings("SpellCheckingInspection")
 public class Day10 extends NullDay {
     int signalStrengths = 0;
 
@@ -24,13 +25,11 @@ public class Day10 extends NullDay {
         for (String instruction : instructions) {
             String[] instParts = instruction.split(" ");
             switch (instParts[0]) {
-                case "noop":
-                    incPC(pc, xReg);
-                    break;
-                case "addx":
-
+                case "noop" -> incPC(pc, xReg);
+                case "addx" -> {
                     incPC(2, pc, xReg);
                     xReg.increment(Integer.parseInt(instParts[1]));
+                }
             }
         }
         System.out.println(signalStrengths);
@@ -77,13 +76,11 @@ public class Day10 extends NullDay {
         for (String instruction : instructions) {
             String[] instParts = instruction.split(" ");
             switch (instParts[0]) {
-                case "noop":
-                    p2incPC(pc, xReg);
-                    break;
-                case "addx":
-
+                case "noop" -> p2incPC(pc, xReg);
+                case "addx" -> {
                     p2incPC(2, pc, xReg);
                     xReg.increment(Integer.parseInt(instParts[1]));
+                }
             }
         }
         for (int i = 0; i < screen.length; i++) {

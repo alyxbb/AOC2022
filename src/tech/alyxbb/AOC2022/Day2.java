@@ -18,12 +18,10 @@ public class Day2 extends IntDay {
             int p2 = 0;
             switch (players[0]) {
                 case "A" -> p1 = -1;
-                case "B" -> p1 = 0;
                 case "C" -> p1 = 1;
             }
             switch (players[1]) {
                 case "X" -> p2 = -1;
-                case "Y" -> p2 = 0;
                 case "Z" -> p2 = 1;
             }
             score += p2 + 2;
@@ -48,11 +46,10 @@ public class Day2 extends IntDay {
             int result = 0;
             switch (players[1]) {
                 case "X" -> result = -1;
-                case "Y" -> result = 0;
                 case "Z" -> result = 1;
             }
             score += 3 * (result + 1);
-            switch (match) {//there is probably a better way to do this, but I couldnt find one
+            switch (match) {//there is probably a better way to do this, but I couldn't find one
                 case "A X", "C Y", "B Z" -> score += 3;
                 case "B X", "A Y", "C Z" -> score += 1;
                 case "C X", "B Y", "A Z" -> score += 2;

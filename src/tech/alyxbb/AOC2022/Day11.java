@@ -20,8 +20,8 @@ public class Day11 extends LongDay {
 
         String[] monkeysInput = input.split("\n\n");
         for (String monkeyText : monkeysInput) {
-            String[] monkeylines = monkeyText.split("\n");
-            int num = 0;
+            String[] monkeyLines = monkeyText.split("\n");
+            int num;
             long[] startingItems = new long[0];
             Operation operation = null;
             int operationAmount = 0;
@@ -29,38 +29,29 @@ public class Day11 extends LongDay {
             Monkey trueMonkey = null;
             Monkey falseMonkey = null;
 
-            String numPart = monkeylines[0].split(" ")[1];
+            String numPart = monkeyLines[0].split(" ")[1];
             num = Integer.parseInt(numPart.substring(0, numPart.length() - 1));
-            for (String line : monkeylines) {
+            for (String line : monkeyLines) {
                 String[] parts = line.split(": ");
                 switch (parts[0]) {
-                    case "  Starting items":
-                        startingItems = Arrays.stream(parts[1].split(", "))
-                                .mapToLong(val -> Long.parseLong(val))
-                                .toArray();
-                        break;
-                    case "  Operation":
+                    case "  Starting items" -> startingItems = Arrays.stream(parts[1].split(", "))
+                            .mapToLong(Long::parseLong)
+                            .toArray();
+                    case "  Operation" -> {
                         String[] opParts = parts[1].split(" ");
                         if (parts[1].equals("new = old * old")) {
                             operation = SQUARED;
                         } else {
                             operationAmount = Integer.parseInt(opParts[4]);
-                            switch (opParts[3]) {
-                                case "+":
-                                    operation = ADD;
-                                    break;
-                                case "*":
-                                    operation = MULTIPLY;
-                                    break;
-                                default:
-                                    throw new RuntimeException("invalid input");
-                            }
+                            operation = switch (opParts[3]) {
+                                case "+" -> ADD;
+                                case "*" -> MULTIPLY;
+                                default -> throw new RuntimeException("invalid input");
+                            };
                         }
-                        break;
-                    case "  Test":
-                        test = Integer.parseInt(parts[1].split(" ")[2]);
-                        break;
-                    case "    If true":
+                    }
+                    case "  Test" -> test = Integer.parseInt(parts[1].split(" ")[2]);
+                    case "    If true" -> {
                         int trueMonkeyNo = Integer.parseInt(parts[1].split(" ")[3]);
                         if (monkeys.size() <= trueMonkeyNo || monkeys.get(trueMonkeyNo) == null) {
                             trueMonkey = new Monkey();
@@ -69,8 +60,8 @@ public class Day11 extends LongDay {
                             trueMonkey = monkeys.get(trueMonkeyNo);
 
                         }
-                        break;
-                    case "    If false":
+                    }
+                    case "    If false" -> {
                         int falseMonkeyNo = Integer.parseInt(parts[1].split(" ")[3]);
                         if (monkeys.size() <= falseMonkeyNo || monkeys.get(falseMonkeyNo) == null) {
                             falseMonkey = new Monkey();
@@ -78,7 +69,7 @@ public class Day11 extends LongDay {
                         } else {
                             falseMonkey = monkeys.get(falseMonkeyNo);
                         }
-                        break;
+                    }
                 }
             }
 
@@ -119,11 +110,11 @@ public class Day11 extends LongDay {
 
     public final Long part2() {
         ArrayList<Monkey> monkeys = new ArrayList<>(Collections.nCopies(100, null));
-        long modamount = 1;
+        long modAmount = 1;
         String[] monkeysInput = input.split("\n\n");
         for (String monkeyText : monkeysInput) {
-            String[] monkeylines = monkeyText.split("\n");
-            int num = 0;
+            String[] monkeyLines = monkeyText.split("\n");
+            int num;
             long[] startingItems = new long[0];
             Operation operation = null;
             int operationAmount = 0;
@@ -131,39 +122,32 @@ public class Day11 extends LongDay {
             Monkey trueMonkey = null;
             Monkey falseMonkey = null;
 
-            String numPart = monkeylines[0].split(" ")[1];
+            String numPart = monkeyLines[0].split(" ")[1];
             num = Integer.parseInt(numPart.substring(0, numPart.length() - 1));
-            for (String line : monkeylines) {
+            for (String line : monkeyLines) {
                 String[] parts = line.split(": ");
                 switch (parts[0]) {
-                    case "  Starting items":
-                        startingItems = Arrays.stream(parts[1].split(", "))
-                                .mapToLong(val -> Long.parseLong(val))
-                                .toArray();
-                        break;
-                    case "  Operation":
+                    case "  Starting items" -> startingItems = Arrays.stream(parts[1].split(", "))
+                            .mapToLong(Long::parseLong)
+                            .toArray();
+                    case "  Operation" -> {
                         String[] opParts = parts[1].split(" ");
                         if (parts[1].equals("new = old * old")) {
                             operation = SQUARED;
                         } else {
                             operationAmount = Integer.parseInt(opParts[4]);
-                            switch (opParts[3]) {
-                                case "+":
-                                    operation = ADD;
-                                    break;
-                                case "*":
-                                    operation = MULTIPLY;
-                                    break;
-                                default:
-                                    throw new RuntimeException("invalid input");
-                            }
+                            operation = switch (opParts[3]) {
+                                case "+" -> ADD;
+                                case "*" -> MULTIPLY;
+                                default -> throw new RuntimeException("invalid input");
+                            };
                         }
-                        break;
-                    case "  Test":
+                    }
+                    case "  Test" -> {
                         test = Integer.parseInt(parts[1].split(" ")[2]);
-                        modamount*=test;
-                        break;
-                    case "    If true":
+                        modAmount *= test;
+                    }
+                    case "    If true" -> {
                         int trueMonkeyNo = Integer.parseInt(parts[1].split(" ")[3]);
                         if (monkeys.size() <= trueMonkeyNo || monkeys.get(trueMonkeyNo) == null) {
                             trueMonkey = new Monkey(true);
@@ -172,8 +156,8 @@ public class Day11 extends LongDay {
                             trueMonkey = monkeys.get(trueMonkeyNo);
 
                         }
-                        break;
-                    case "    If false":
+                    }
+                    case "    If false" -> {
                         int falseMonkeyNo = Integer.parseInt(parts[1].split(" ")[3]);
                         if (monkeys.size() <= falseMonkeyNo || monkeys.get(falseMonkeyNo) == null) {
                             falseMonkey = new Monkey(true);
@@ -181,7 +165,7 @@ public class Day11 extends LongDay {
                         } else {
                             falseMonkey = monkeys.get(falseMonkeyNo);
                         }
-                        break;
+                    }
                 }
             }
 
@@ -199,7 +183,7 @@ public class Day11 extends LongDay {
             }
 
         }
-        Monkey.modAmount=modamount;
+        Monkey.modAmount=modAmount;
         for (int i = 0; i < 10_000; i++) {
             for (Monkey monk : monkeys) {
                 if (monk != null) {

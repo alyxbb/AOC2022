@@ -25,31 +25,22 @@ public class Line {
         this(new Point(x1, y1), new Point(x2, y2));
     }
 
-    public boolean isHori() {
-        if (a.getY() == b.getY()) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean isHorizontal() {
+        return a.getY() == b.getY();
     }
 
     public boolean checkCollision(Point pt) {
-        if (isHori()) {
+        if (isHorizontal()) {
             if (pt.getY() == a.getY()) {
                 int maxPt = Integer.max(a.getX(), b.getX());
                 int minPt = Integer.min(a.getX(), b.getX());
-                if (minPt <= pt.getX() && pt.getX() <= maxPt) {
-                    return true;
-
-                }
+                return minPt <= pt.getX() && pt.getX() <= maxPt;
             }
         } else {
             if (pt.getX() == a.getX()) {
                 int maxPt = Integer.max(a.getY(), b.getY());
                 int minPt = Integer.min(a.getY(), b.getY());
-                if (minPt <= pt.getY() && pt.getY() <= maxPt) {
-                    return true;
-                }
+                return minPt <= pt.getY() && pt.getY() <= maxPt;
 
             }
 

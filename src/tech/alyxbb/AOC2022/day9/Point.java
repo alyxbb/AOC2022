@@ -49,8 +49,4 @@ public class Point {
         return new int[]{x, y};
     }
 
-    public void setPoints(int[] points) {
-        this.x = points[0];
-        this.y = points[1];
-    }
 }

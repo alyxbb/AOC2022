@@ -24,52 +24,28 @@ public class Monkey {
 
     private long inspections = 0;
 
-    public long[] getItems() {
-        return this.items.stream().mapToLong(obj -> (long) obj).toArray();
-    }
-
     public void setItems(final long[] items) {
-        this.items = new ArrayList<>(Arrays.stream(items).mapToObj(obj -> Long.valueOf(obj)).collect(Collectors.toList()));
+        this.items = Arrays.stream(items).boxed().collect(Collectors.toCollection(ArrayList::new));
     }
 
     public void addItem(final long item) {
         this.items.add(item);
     }
 
-    public Operation getOperation() {
-        return this.operation;
-    }
-
     public void setOperation(final Operation operation) {
         this.operation = operation;
-    }
-
-    public int getOperationAmount() {
-        return this.operationAmount;
     }
 
     public void setOperationAmount(final int operationAmount) {
         this.operationAmount = operationAmount;
     }
 
-    public int getTest() {
-        return this.test;
-    }
-
     public void setTest(final int test) {
         this.test = test;
     }
 
-    public Monkey getTrueMonkey() {
-        return this.trueMonkey;
-    }
-
     public void setTrueMonkey(final Monkey trueMonkey) {
         this.trueMonkey = trueMonkey;
-    }
-
-    public Monkey getFalseMonkey() {
-        return this.falseMonkey;
     }
 
     public void setFalseMonkey(final Monkey falseMonkey) {

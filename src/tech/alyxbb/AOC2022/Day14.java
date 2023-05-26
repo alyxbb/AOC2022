@@ -2,7 +2,6 @@ package tech.alyxbb.AOC2022;
 
 import tech.alyxbb.AOC2022.abc.IntDay;
 import tech.alyxbb.AOC2022.day14.Line;
-import tech.alyxbb.AOC2022.day14.Point;
 import tech.alyxbb.AOC2022.day14.Sand;
 
 import java.util.ArrayList;
@@ -97,11 +96,9 @@ public class Day14 extends IntDay {
                 }
             }
         }
-        for (int i = 0; i < area[area.length - 1].length; i++) {
-            area[area.length - 1][i] = true;
-        }
+        Arrays.fill(area[area.length - 1], true);
         int count = 0;
-        while (true) {
+        do {
             count++;
             int curr_x = 500;
             int curr_y = 0;
@@ -119,11 +116,8 @@ public class Day14 extends IntDay {
                     break;
                 }
             }
-            if (area[0][500]) {
-                break;
-            }
 
-        }
+        } while (!area[0][500]);
 
         return count;
     }

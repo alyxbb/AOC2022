@@ -25,32 +25,24 @@ public class Day7 extends IntDay {
         for (String line : lines) {
             String[] lineArr = line.split(" ");
             switch (lineArr[0]) {
-                case "$":
+                case "$" -> {
                     if (lineArr[1].equals("cd")) {
                         switch (lineArr[2]) {
-                            case "/":
-                                currentDir = root;
-                                break;
-                            case "..":
-                                currentDir = currentDir.getParent();
-                                break;
-                            default:
+                            case "/" -> currentDir = root;
+                            case ".." -> currentDir = currentDir.getParent();
+                            default -> {
                                 for (Dir dir : currentDir.getChildDir()) {
                                     if (dir.getName().equals(lineArr[2])) {
                                         currentDir = dir;
                                         break;
                                     }
                                 }
-                                break;
+                            }
                         }
                     }
-                    break;
-                case "dir":
-                    currentDir.addDir(new Dir(lineArr[1], currentDir));
-                    break;
-                default:
-                    currentDir.addFile(new File(lineArr[1], Integer.parseInt(lineArr[0])));
-                    break;
+                }
+                case "dir" -> currentDir.addDir(new Dir(lineArr[1], currentDir));
+                default -> currentDir.addFile(new File(lineArr[1], Integer.parseInt(lineArr[0])));
             }
 
         }
@@ -60,8 +52,8 @@ public class Day7 extends IntDay {
     public Integer part2() {
         Dir root = genFs();
         int sizeUsed = root.getSize();
-        int sizeavail = 70000000 - sizeUsed;
-        int sizeNeeded = 30000000 - sizeavail;
+        int sizeAvailable = 70000000 - sizeUsed;
+        int sizeNeeded = 30000000 - sizeAvailable;
         ArrayList<Dir> allDirs = root.getAllDirs();
         Collections.sort(allDirs);
         for (Dir dir : allDirs) {

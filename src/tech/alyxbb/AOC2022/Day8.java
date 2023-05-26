@@ -14,7 +14,7 @@ public class Day8 extends IntDay {
                 .map(row -> row
                         .chars()
                         .mapToObj(c -> Character.toString((char) c))
-                        .map(elem -> Integer.parseInt(elem))
+                        .map(Integer::parseInt)
                         .mapToInt(Integer::intValue)
                         .toArray()
                 )
@@ -26,11 +26,11 @@ public class Day8 extends IntDay {
 
 
         for (int rowIndex = 0; rowIndex < heights.length; rowIndex++) {
-            int maxheight = -1;
+            int maxHeight = -1;
             for (int colIndex = 0; colIndex < heights[rowIndex].length; colIndex++) {
                 int valtotest = heights[rowIndex][colIndex];
-                if (valtotest > maxheight) {
-                    maxheight = valtotest;
+                if (valtotest > maxHeight) {
+                    maxHeight = valtotest;
                     ltr[rowIndex][colIndex] = false;
                 } else {
                     ltr[rowIndex][colIndex] = true;
@@ -38,11 +38,11 @@ public class Day8 extends IntDay {
             }
         }
         for (int rowIndex = 0; rowIndex < heights.length; rowIndex++) {
-            int maxheight = -1;
+            int maxHeight = -1;
             for (int colIndex = heights[rowIndex].length - 1; colIndex >= 0; colIndex--) {
                 int valtotest = heights[rowIndex][colIndex];
-                if (valtotest > maxheight) {
-                    maxheight = valtotest;
+                if (valtotest > maxHeight) {
+                    maxHeight = valtotest;
                     rtl[rowIndex][colIndex] = false;
                 } else {
                     rtl[rowIndex][colIndex] = true;
@@ -50,11 +50,11 @@ public class Day8 extends IntDay {
             }
         }
         for (int colIndex = 0; colIndex < heights[0].length; colIndex++) {
-            int maxheight = -1;
+            int maxHeight = -1;
             for (int rowIndex = 0; rowIndex < heights.length; rowIndex++) {
                 int valtotest = heights[rowIndex][colIndex];
-                if (valtotest > maxheight) {
-                    maxheight = valtotest;
+                if (valtotest > maxHeight) {
+                    maxHeight = valtotest;
                     utd[rowIndex][colIndex] = false;
                 } else {
                     utd[rowIndex][colIndex] = true;
@@ -62,11 +62,11 @@ public class Day8 extends IntDay {
             }
         }
         for (int colIndex = 0; colIndex < heights[0].length; colIndex++) {
-            int maxheight = -1;
+            int maxHeight = -1;
             for (int rowIndex = heights.length - 1; rowIndex >= 0; rowIndex--) {
                 int valtotest = heights[rowIndex][colIndex];
-                if (valtotest > maxheight) {
-                    maxheight = valtotest;
+                if (valtotest > maxHeight) {
+                    maxHeight = valtotest;
                     dtu[rowIndex][colIndex] = false;
                 } else {
                     dtu[rowIndex][colIndex] = true;
@@ -86,7 +86,7 @@ public class Day8 extends IntDay {
                 .map(row -> (int) Arrays.stream(row)
                         .filter(visibility -> visibility)
                         .count())
-                .reduce(0, (a, b) -> a + b);
+                .reduce(0, Integer::sum);
         int total = heights.length * heights[0].length;
 
         return total - visible;
@@ -97,7 +97,7 @@ public class Day8 extends IntDay {
                 .map(row -> row
                         .chars()
                         .mapToObj(c -> Character.toString((char) c))
-                        .map(elem -> Integer.parseInt(elem))
+                        .map(Integer::parseInt)
                         .mapToInt(Integer::intValue)
                         .toArray()
                 )
@@ -109,9 +109,9 @@ public class Day8 extends IntDay {
                 // have the max score
                 int value = heights[rowIndex][colIndex];
                 int[] dists = new int[4];
-                for (int testcolIndex = colIndex + 1; testcolIndex < heights[rowIndex].length; testcolIndex++) {
+                for (int testColIndex = colIndex + 1; testColIndex < heights[rowIndex].length; testColIndex++) {
                     dists[0]++;
-                    if (heights[rowIndex][testcolIndex] >= value) {
+                    if (heights[rowIndex][testColIndex] >= value) {
                         break;
                     }
                 }
@@ -121,9 +121,9 @@ public class Day8 extends IntDay {
                         break;
                     }
                 }
-                for (int testcolIndex = colIndex - 1; testcolIndex >= 0; testcolIndex--) {
+                for (int testColIndex = colIndex - 1; testColIndex >= 0; testColIndex--) {
                     dists[2]++;
-                    if (heights[rowIndex][testcolIndex] >= value) {
+                    if (heights[rowIndex][testColIndex] >= value) {
                         break;
                     }
                 }
@@ -138,13 +138,12 @@ public class Day8 extends IntDay {
 
             }
         }
-        int maxscore = Arrays.stream(scores)
+        return Arrays.stream(scores)
                 .map(row -> Arrays.stream(row)
                         .max()
                         .getAsInt())
                 .mapToInt(Integer::intValue)
                 .max()
                 .getAsInt();
-        return maxscore;
     }
 }

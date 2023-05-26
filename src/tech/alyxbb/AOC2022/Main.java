@@ -26,16 +26,16 @@ public class Main {
     }
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        int dayno = getDayno();
+        int dayNo = getDayNo();
 
-        String puzzleInput = loadFile(Integer.toString(dayno));
-        Day day = (Day) Class.forName("tech.alyxbb.AOC2022.Day" + dayno).getConstructor(String.class).newInstance(puzzleInput);
+        String puzzleInput = loadFile(Integer.toString(dayNo));
+        Day day = (Day) Class.forName("tech.alyxbb.AOC2022.Day" + dayNo).getConstructor(String.class).newInstance(puzzleInput);
 
         System.out.println("Part 1 answer: " + day.part1());
         System.out.println("Part 2 answer: " + day.part2());
     }
 
-    private static int getDayno() {
+    private static int getDayNo() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select Day Number:");
         System.out.print("> ");

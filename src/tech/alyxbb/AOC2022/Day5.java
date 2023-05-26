@@ -16,15 +16,15 @@ public class Day5 extends StringDay {
         String[] parts = input.split("\n\n");
         String[] startingSetup = parts[0].split("\n");
         String[] swaps = parts[1].split("\n");
-        int numpiles = startingSetup[startingSetup.length - 1].substring(1).split(" {3}").length;
-        Stack<Character>[] piles = new Stack[numpiles];
+        int numPiles = startingSetup[startingSetup.length - 1].substring(1).split(" {3}").length;
+        Stack<Character>[] piles = new Stack[numPiles];
         for (int i = 0; i < piles.length; i++) {
-            piles[i] = new Stack<Character>();
+            piles[i] = new Stack<>();
         }
         List<String> startingSetupList = Arrays.asList(Arrays.copyOfRange(startingSetup, 0, startingSetup.length - 1));
         Collections.reverse(startingSetupList);
         for (String pile : startingSetupList) {
-            for (int i = 0; i < numpiles; i++) {
+            for (int i = 0; i < numPiles; i++) {
                 char letter = pile.toCharArray()[i * 4 + 1];
                 if (letter != ' ') {
                     piles[i].push(letter);
@@ -34,34 +34,34 @@ public class Day5 extends StringDay {
         }
         for (String swap : swaps) {
             String[] swapArr = swap.split(" ");
-            int times = Integer.valueOf(swapArr[1]);
-            int from = Integer.valueOf(swapArr[3])-1;
-            int to = Integer.valueOf(swapArr[5])-1;
+            int times = Integer.parseInt(swapArr[1]);
+            int from = Integer.parseInt(swapArr[3])-1;
+            int to = Integer.parseInt(swapArr[5])-1;
             for (int i = 0; i < times; i++) {
                 piles[to].push(piles[from].pop());
             }
 
         }
-        String tops = "";
+        StringBuilder tops = new StringBuilder();
         for (Stack<Character> stack : piles) {
-            tops+=stack.pop();
+            tops.append(stack.pop());
         }
-        return tops;
+        return tops.toString();
     }
 
     public String part2() {
         String[] parts = input.split("\n\n");
         String[] startingSetup = parts[0].split("\n");
         String[] swaps = parts[1].split("\n");
-        int numpiles = startingSetup[startingSetup.length - 1].substring(1).split(" {3}").length;
-        Stack<Character>[] piles = new Stack[numpiles];
+        int numPiles = startingSetup[startingSetup.length - 1].substring(1).split(" {3}").length;
+        Stack<Character>[] piles = new Stack[numPiles];
         for (int i = 0; i < piles.length; i++) {
-            piles[i] = new Stack<Character>();
+            piles[i] = new Stack<>();
         }
         List<String> startingSetupList = Arrays.asList(Arrays.copyOfRange(startingSetup, 0, startingSetup.length - 1));
         Collections.reverse(startingSetupList);
         for (String pile : startingSetupList) {
-            for (int i = 0; i < numpiles; i++) {
+            for (int i = 0; i < numPiles; i++) {
                 char letter = pile.toCharArray()[i * 4 + 1];
                 if (letter != ' ') {
                     piles[i].push(letter);
@@ -71,11 +71,11 @@ public class Day5 extends StringDay {
         }
         for (String swap : swaps) {
             String[] swapArr = swap.split(" ");
-            int times = Integer.valueOf(swapArr[1]);
-            int from = Integer.valueOf(swapArr[3])-1;
-            int to = Integer.valueOf(swapArr[5])-1;
+            int times = Integer.parseInt(swapArr[1]);
+            int from = Integer.parseInt(swapArr[3])-1;
+            int to = Integer.parseInt(swapArr[5])-1;
             Stack <Character> tempStack = new Stack<>();
-            for (int i = 0; i < times; i++) {//yes there probably is a better way to do this, this was the quickest way to do it having already written the soloution to part 1.
+            for (int i = 0; i < times; i++) {//yes there probably is a better way to do this, this was the quickest way to do it having already written the solution to part 1.
                 tempStack.push(piles[from].pop());
             }
             while (!tempStack.empty()){
@@ -83,10 +83,10 @@ public class Day5 extends StringDay {
             }
 
         }
-        String tops = "";
+        StringBuilder tops = new StringBuilder();
         for (Stack<Character> stack : piles) {
-            tops+=stack.pop();
+            tops.append(stack.pop());
         }
-        return tops;
+        return tops.toString();
     }
 }

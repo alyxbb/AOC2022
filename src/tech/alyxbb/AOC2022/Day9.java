@@ -19,18 +19,10 @@ public class Day9 extends IntDay {
             int amount = Integer.parseInt(parts[1]);
             for (int i = 0; i < amount; i++) {
                 switch (parts[0]) {
-                    case "L":
-                        head.moveL();
-                        break;
-                    case "R":
-                        head.moveR();
-                        break;
-                    case "U":
-                        head.moveU();
-                        break;
-                    case "D":
-                        head.moveD();
-                        break;
+                    case "L" -> head.moveL();
+                    case "R" -> head.moveR();
+                    case "U" -> head.moveU();
+                    case "D" -> head.moveD();
                 }
                 tail.chase(head.getPoints());
             }
@@ -59,18 +51,10 @@ public class Day9 extends IntDay {
             int amount = Integer.parseInt(parts[1]);
             for (int i = 0; i < amount; i++) {
                 switch (parts[0]) {
-                    case "L":
-                        head.moveL();
-                        break;
-                    case "R":
-                        head.moveR();
-                        break;
-                    case "U":
-                        head.moveU();
-                        break;
-                    case "D":
-                        head.moveD();
-                        break;
+                    case "L" -> head.moveL();
+                    case "R" -> head.moveR();
+                    case "U" -> head.moveU();
+                    case "D" -> head.moveD();
                 }
                 tails[0].chase(head.getPoints());
                 for (int j = 1; j < tails.length; j++) {

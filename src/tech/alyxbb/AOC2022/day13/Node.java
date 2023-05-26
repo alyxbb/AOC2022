@@ -2,13 +2,9 @@ package tech.alyxbb.AOC2022.day13;
 
 import java.util.ArrayList;
 
-public class Node implements Comparable {
+public class Node implements Comparable<Node> {
     private ArrayList<Node> children;
     private Integer value = null;
-
-    public Boolean equals(Node t) {
-        return this == t;
-    }
 
     public static Boolean compare(Node left, Node right) {
         ArrayList<Node> leftChildren = left.getChildren();
@@ -42,10 +38,6 @@ public class Node implements Comparable {
         return null;
     }
 
-    public Boolean hasChildren() {
-        return children.size() != 0;
-    }
-
     public ArrayList<Node> getChildren() {
         return children;
     }
@@ -62,10 +54,6 @@ public class Node implements Comparable {
         this.children = children;
     }
 
-    public Node getNextChild() {
-        return children.remove(0);
-    }
-
     public int size() {
         return children.size();
     }
@@ -76,14 +64,14 @@ public class Node implements Comparable {
 
     public String toString() {
         if (value == null) {
-            String childStr = "";
+            StringBuilder childStr = new StringBuilder();
             for (Node child : children) {
-                childStr += child + ",";
+                childStr.append(child).append(",");
             }
             try {
-                childStr = childStr.substring(0, childStr.length() - 1);
+                childStr = new StringBuilder(childStr.substring(0, childStr.length() - 1));
             } catch (StringIndexOutOfBoundsException e) {
-                childStr = "";
+                childStr = new StringBuilder();
             }
 
             return "[" + childStr + "]";
@@ -93,8 +81,8 @@ public class Node implements Comparable {
     }
 
 
-    public int compareTo(Object o) {
-        boolean res = compare(this, (Node) o);
+    public int compareTo(Node o) {
+        boolean res = compare(this, o);
         if (res) {
             return -1;
         } else {

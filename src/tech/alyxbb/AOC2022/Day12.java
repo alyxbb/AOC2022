@@ -127,14 +127,14 @@ public class Day12 extends IntDay {
         int endCol = -1;
 
 
-        ArrayList<int[]> potentailStarts = new ArrayList<>();
+        ArrayList<int[]> potentialStarts = new ArrayList<>();
         int bestestDist = Integer.MAX_VALUE;
 
 
         for (int i = 0; i < elems.length; i++) {
             for (int j = 0; j < elems[i].length; j++) {
                 if (elems[i][j] == -1 || elems[i][j] == 0) {
-                    potentailStarts.add(new int[]{i, j});
+                    potentialStarts.add(new int[]{i, j});
                 } else if (elems[i][j] == 26) {
                     endRow = i;
                     endCol = j;
@@ -142,7 +142,7 @@ public class Day12 extends IntDay {
             }
         }
 
-        for (int[] potentialStart : potentailStarts) {
+        for (int[] potentialStart : potentialStarts) {
             int[][] dists = new int[elems.length][elems[0].length];
             boolean[][] visited = new boolean[elems.length][elems[0].length];
             

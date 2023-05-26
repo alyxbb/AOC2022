@@ -3,11 +3,11 @@ package tech.alyxbb.AOC2022.day7;
 import java.util.ArrayList;
 
 public class Dir extends FileDir implements Comparable<Dir> {
-    private Dir parent;
+    private final Dir parent;
 
 
-    private ArrayList<Dir> childDir = new ArrayList<>();
-    private ArrayList<File> childFile = new ArrayList<>();
+    private final ArrayList<Dir> childDir = new ArrayList<>();
+    private final ArrayList<File> childFile = new ArrayList<>();
 
 
     public ArrayList<Dir> getChildDir() {

@@ -1,7 +1,7 @@
 package tech.alyxbb.AOC2022.day7;
 
 public class File extends FileDir {
-    private int size;
+    private final int size;
 
 
     public File(String name, final int size) {

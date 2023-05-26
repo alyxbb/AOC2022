@@ -1,7 +1,7 @@
 package tech.alyxbb.AOC2022.abc;
 
 public abstract class Day {
-    public String input;
+    public final String input;
 
     public Day(String inp) {
         input = inp;

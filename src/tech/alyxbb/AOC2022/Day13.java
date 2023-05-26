@@ -5,9 +5,6 @@ import tech.alyxbb.AOC2022.day13.Node;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Day13 extends IntDay {
     public Day13(String inp) {
@@ -33,24 +30,24 @@ public class Day13 extends IntDay {
 
     private Node deserialize(String text) {
         ArrayList<Node> elems = new ArrayList<>();
-        char[] textarr = text.toCharArray();
-        String buffer = "";
+        char[] text_array = text.toCharArray();
+        StringBuilder buffer = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
-            if (textarr[i] == '[') {
-                elems.add(deserialize(text.substring(i + 1, getSameDepthBracketPos(i, textarr))));
-                i = getSameDepthBracketPos(i, textarr);
+            if (text_array[i] == '[') {
+                elems.add(deserialize(text.substring(i + 1, getSameDepthBracketPos(i, text_array))));
+                i = getSameDepthBracketPos(i, text_array);
 
-            } else if (textarr[i] == ',') {
+            } else if (text_array[i] == ',') {
                 if (buffer.length() != 0) {
-                    elems.add(new Node(Integer.parseInt(buffer)));
-                    buffer = "";
+                    elems.add(new Node(Integer.parseInt(buffer.toString())));
+                    buffer = new StringBuilder();
                 }
             } else {
-                buffer += textarr[i];
+                buffer.append(text_array[i]);
             }
         }
         if (buffer.length() != 0) {
-            elems.add(new Node(Integer.parseInt(buffer)));
+            elems.add(new Node(Integer.parseInt(buffer.toString())));
 
         }
 
